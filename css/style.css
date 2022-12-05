@@ -52,6 +52,8 @@ body {
 .header-primary {
     text-transform: uppercase;
     color: #fff;
+
+    backface-visibility: hidden;
 }
 
 .header-primary-main {
@@ -59,6 +61,15 @@ body {
     font-weight: 400;
     font-size: 60px;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 
+    animation-delay: 3s;
+    animation-iteration-count: 3
+    */
 }
 
 .header-primary-sub {
@@ -66,4 +77,38 @@ body {
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 17px;
+    animation: moveInRight 1s ease-out;
 }
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
